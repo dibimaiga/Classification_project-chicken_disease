@@ -9,5 +9,5 @@
 5. Update the configuration manager in src config
 6. Update the components
 7. Update the pipeline
-8. Update the main.py
+8. Update the main.py <!-- pas besoin quand on experiment ave notebooklm -->
 9. Update the dvc.yaml <!-- I will update this after completed all the components -->
