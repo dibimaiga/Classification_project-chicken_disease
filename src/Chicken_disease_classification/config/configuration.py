@@ -4,7 +4,9 @@ from Chicken_disease_classification.utils.common import read_yaml, create_direct
 from Chicken_disease_classification.entity.config_entity import (DataIngestionConfig,
                                                                   PrepareBaseModelConfig,
                                                                   PrepareCallbacksConfig,
-                                                                  PrepareTrainingConfig)
+                                                                  PrepareTrainingConfig,
+                                                                  EvaluationConfig)
+from pathlib import Path
 
 class ConfigurationManager:
     def __init__(
@@ -85,4 +87,15 @@ class ConfigurationManager:
         )
 
         return training_config
+    
+    def get_evaluation_config(self) -> EvaluationConfig:
+        evaluation_config = EvaluationConfig(
+            path_of_model = Path("artifacts/training/trained_model.h5"),
+            train_data = Path("artifacts/data_ingestion/Chicken-fecal-images"),
+            all_params = self.params,
+            param_image_size = self.params.IMAGE_SIZE,
+            param_batch_size = self.params.BATCH_SIZE
+        )
+
+        return evaluation_config
     
